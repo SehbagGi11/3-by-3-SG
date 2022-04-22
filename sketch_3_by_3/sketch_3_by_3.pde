@@ -4,7 +4,7 @@ float buttonX2, buttonY2, buttonWidth2, buttonHeight2;
 float rectDisplayX, rectDisplayY, rectDisplayWidth, rectDisplayHeight;
 float ellipseX, ellipseY, ellipseXDiameter, ellipseYDiameter;
 float x, y, xDiameter, yDiameter;
-color black=#000000, white=#E7E8C9; //good for nightMode, blue is 0, white is not nightMode
+color black=#000000, white=#FFFFE1; //good for nightMode, blue is 0, white is not nightMode
 Boolean rectON=false, ellipseON=false;
 //
 String title1 = "carré";
@@ -33,11 +33,11 @@ void setup()
   //Swap display key variables for testing
   int appWidth = width; //displayWidth
   int appHeight = height; //displayHeight
-  String ls="Lanscape or Square", p="portrait", DO="Display Orientation:", instruct="Rotate your phone";
+  String ls="Lanscape or Square", p="portrait", DO="Display Orientation:", instruct="Turn your phone aye bud";
   String orientation = ( appWidth >= appHeight ) ? ls : p ; //Ternary Operator, repeats IF-ElSE
   println (DO, orientation);
   if (orientation==ls) {
-    println("Good to Go");
+    println("Good to Go BUD");
   } else { 
     println(instruct);
     appWidth = appWidth*0;
