@@ -7,8 +7,8 @@ float x, y, xDiameter, yDiameter;
 color black=#000000, white=#FFFFE1; //good for nightMode, blue is 0, white is not nightMode
 Boolean rectON=false, ellipseON=false;
 //
-String title1 = "YOO!";
-String title2 = "cici";
+String title1 = "carré";
+String title2 = "ovale";
 PFont titleFont;
 color grey=#464646;
 /*
