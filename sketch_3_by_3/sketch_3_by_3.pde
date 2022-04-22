@@ -4,11 +4,13 @@ float buttonX2, buttonY2, buttonWidth2, buttonHeight2;
 float rectDisplayX, rectDisplayY, rectDisplayWidth, rectDisplayHeight;
 float ellipseX, ellipseY, ellipseXDiameter, ellipseYDiameter;
 float x, y, xDiameter, yDiameter;
-color black=#000000, white=#FFFFE1; //good for nightMode, blue is 0, white is not nightMode
+color black=#000000, white=#E7E8C9; //good for nightMode, blue is 0, white is not nightMode
 Boolean rectON=false, ellipseON=false;
-String title = "YOO!";
+//
+String title1 = "carré";
+String title2 = "ovale";
 PFont titleFont;
-color grey=#464646, resetDefaultInk=#FFFFFF;
+color grey=#464646;
 /*
 float buttonX3, buttonY3, buttonWidth3, buttonHeight3;
  float buttonX4, buttonY4, buttonWidth4, buttonHeight4;
@@ -31,7 +33,7 @@ void setup()
   //Swap display key variables for testing
   int appWidth = width; //displayWidth
   int appHeight = height; //displayHeight
-  String ls="Lanscape or Square", p="portrait", DO="Display Orientation:", instruct="Bro, rotate your phone";
+  String ls="Lanscape or Square", p="portrait", DO="Display Orientation:", instruct="Rotate your phone";
   String orientation = ( appWidth >= appHeight ) ? ls : p ; //Ternary Operator, repeats IF-ElSE
   println (DO, orientation);
   if (orientation==ls) {
@@ -41,7 +43,7 @@ void setup()
     appWidth = appWidth*0;
     appHeight = appHeight*0;
   }
-  println("App Geometry is:", "/tApp Width:", appWidth, "/t/tApp Height", appHeight);
+  println("App Geometry is:", "\tApp Width:", appWidth, "\t\tApp Height", appHeight);
   //
   //Population
    buttonX1 = appWidth*1/4; 
@@ -60,13 +62,13 @@ void setup()
    ellipseY = rectDisplayY;
    ellipseXDiameter = appWidth*1/8; //Note: formulae not "square" but same
    ellipseYDiameter = appHeight*1/8;
-   float ellipseRectXCenter = ellipseX + (ellipseXDiameter*1/2);
-   float ellipseRectYCentre = ellipseY + (ellipseYDiameter*1/2);
+   float ellipseRectXCenter = ellipseX + ellipseXDiameter*1/2;
+   float ellipseRectYCentre = ellipseY + ellipseYDiameter*1/2;
    x = ellipseRectXCenter; 
    y = ellipseRectYCentre; 
    xDiameter = ellipseXDiameter; 
    yDiameter = ellipseYDiameter;
-   titleFont = createFont("", 55);
+   titleFont = createFont("Jokerman", 55);
   /*
    buttonX3 = appWidth; buttonY3 = appHeight; buttonWidth3 = appWidth; buttonHeight3 = appHeight;
    buttonX4 = appWidth; buttonY4 = appHeight; buttonWidth4 = appWidth; buttonHeight4 = appHeight; 
@@ -89,6 +91,13 @@ void draw()
   if (rectON==true && ellipseON==false) rect(rectDisplayX, rectDisplayY, rectDisplayWidth, rectDisplayHeight);
   //rect(ellipseX, ellipseY, ellipseXDiameter, ellipseYDiameter);
   if (rectON==false && ellipseON==true) ellipse(x, y, xDiameter, yDiameter);
+  //
+  fill(grey);
+  textAlign(CENTER, CENTER);
+  textFont(titleFont, 20);
+  text(title1, buttonX1, buttonY1, buttonWidth1, buttonHeight1);
+  text(title2, buttonX2, buttonY2, buttonWidth2, buttonHeight2);
+  fill(white);
   /*
   rect(buttonX3, buttonY3, buttonWidth3, buttonHeight3); //DIV: ""
    rect(buttonX4, buttonY4, buttonWidth4, buttonHeight4); //DIV: ""
@@ -126,7 +135,7 @@ void mousePressed()
   rectON = false;
   ellipseON = false;
   if ( mouseX>=buttonX1 && mouseX<=buttonX1+buttonWidth1 && mouseY>=buttonY1 && mouseY <=buttonY1+buttonHeight1 ) rectON = true;
-  if ( mouseX>=buttonX2 && mouseX<=buttonX2+buttonWidth2 && mouseY>=buttonX2 && mouseY <=buttonY2+buttonHeight2 ) ellipseON = true;
+  if ( mouseX>=buttonX2 && mouseX<=buttonX2+buttonWidth2 && mouseY>=buttonY2 && mouseY <=buttonY2+buttonHeight2 ) ellipseON = true;
 }//End mousePressed
 //
 //End MAIN
